@@ -1,6 +1,7 @@
 import { ADD_PRODUCT, SUB_PRODUCT } from "./actionTypes";
 
-const defaultState = JSON.parse(localStorage.getItem('@KenzieGames:cart')) || []
+const defaultState =
+  JSON.parse(localStorage.getItem("@KenzieGames:cart")) || [];
 
 const cartReducer = (state = defaultState, action) => {
   const { product } = action;
@@ -9,11 +10,11 @@ const cartReducer = (state = defaultState, action) => {
       return [...state, product];
 
     case SUB_PRODUCT:
-      return state.filter((item) => item !== product)
+      return state.filter((item) => item.id !== product.id);
 
     default:
       return state;
   }
 };
 
-export default cartReducer
+export default cartReducer;

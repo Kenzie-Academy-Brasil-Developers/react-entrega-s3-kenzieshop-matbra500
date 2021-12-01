@@ -1,6 +1,6 @@
 h1 {
   text-align: center;
-  color: blue;
+  color: rgb(22, 22, 236);
   margin-top: 15px;
+  cursor: pointer;
 }
-

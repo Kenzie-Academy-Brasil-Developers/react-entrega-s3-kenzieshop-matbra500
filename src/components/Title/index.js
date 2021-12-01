@@ -6,7 +6,7 @@ export const Title = () => {
   const history = useHistory()
   return (
     <TitleContainer>
-      <div onClick={() => history.push('/home')}>Home</div>
+      <div onClick={() => history.push('/')}>Home</div>
       <div onClick={() => history.push('/cart')}>Carrinho</div>
     </TitleContainer>
   );

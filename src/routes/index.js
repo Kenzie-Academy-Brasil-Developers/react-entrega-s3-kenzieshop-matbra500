@@ -5,7 +5,7 @@ import Cart from "../pages/Cart";
 function Routes() {
   return (
     <Switch>
-      <Route exact path="/home">
+      <Route exact path="/">
         <Home />
       </Route>
       <Route exact path="/cart">

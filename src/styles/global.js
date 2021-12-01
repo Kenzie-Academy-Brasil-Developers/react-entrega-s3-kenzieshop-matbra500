@@ -10,10 +10,12 @@ export default createGlobalStyle`
   }
 
   body{
-      background-color: var(--orange);
+      background-color: #1b1d1e;
       text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
       font-family: 'Boogaloo', cursive;
       font-size:22px;
+      color: var(--azure); 
+      text-align:center;
   }
 
   

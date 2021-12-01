@@ -6,18 +6,21 @@ import {
   CartProductContainer,
   ImageContainer,
   DescriptionContainer,
+  EmptyCartContainer,
 } from "./styles";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import { subProductFromCartThunk } from "../../store/modules/cart/thunks";
 
 function Cart() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer);
 
-  const total = cart.reduce((product, acc) => acc.price + product,  0).toFixed(2)
-  console.log(total)
+  const total = cart
+    .reduce((product, acc) => acc.price + product, 0)
+    .toFixed(2);
 
-  console.log(cart);
   if (cart.length > 0) {
     return (
       <CartContainer>
@@ -32,7 +35,9 @@ function Cart() {
                 <h2>{product.name}</h2>
                 <h3>{product.price} R$</h3>
               </DescriptionContainer>
-              <button onClick={() => dispatch(subProductFromCartThunk(product))}>
+              <button
+                onClick={() => dispatch(subProductFromCartThunk(product))}
+              >
                 <MdDelete />
               </button>
             </CartProductContainer>
@@ -40,11 +45,20 @@ function Cart() {
         })}
 
         <h2>Total: {total} R$</h2>
-        <Button className='final-button' variant="contained">Finalizar pedido</Button>
+        <Button className="final-button" variant="contained">
+          Finalizar pedido
+        </Button>
       </CartContainer>
     );
   } else {
-    return null;
+    return (
+      <EmptyCartContainer>
+        <h3>Nada por aqui</h3>
+        <Button onClick={() => history.push("/")} variant="contained">
+          Ir para a home
+        </Button>
+      </EmptyCartContainer>
+    );
   }
 }
 
